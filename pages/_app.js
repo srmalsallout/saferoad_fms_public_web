@@ -89,9 +89,6 @@ function MyApp({ Component, pageProps }) {
         />
 
         <Component {...pageProps} />
-        {process.env.NODE_ENV === "production" && (
-          <div id="development">{`You may find some mistakes because it's still under development`}</div>
-        )}
       </SSRProvider>
     </ThemeProvider>
   );
