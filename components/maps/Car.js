@@ -10,6 +10,7 @@ import {
   useMapEvents,
   ZoomControl,
 } from "react-leaflet";
+import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
 import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
@@ -359,30 +360,19 @@ const Car = ({ data, fbData }) => {
         style={{ height: heightWithoutNav, minWidth: "100%" }}
       >
         <LayersControl position="bottomleft" ref={layersControl}>
-          <LayersControl.BaseLayer checked name="Saferoad">
+        <LayersControl.BaseLayer checked name="Google roadmap">
+          <ReactLeafletGoogleLayer apiKey='AIzaSyA6MAm8eIW4N0WKJ6yco_pUuO0qiWvqj-Y' type={'roadmap'} />
+        </LayersControl.BaseLayer>
+        <LayersControl.BaseLayer name="Google hybrid">
+          <ReactLeafletGoogleLayer apiKey='AIzaSyA6MAm8eIW4N0WKJ6yco_pUuO0qiWvqj-Y' type={'hybrid'} />
+        </LayersControl.BaseLayer>
+        <LayersControl.BaseLayer name="Google terrain">
+          <ReactLeafletGoogleLayer apiKey='AIzaSyA6MAm8eIW4N0WKJ6yco_pUuO0qiWvqj-Y' type={'terrain'} />
+        </LayersControl.BaseLayer>
+          <LayersControl.BaseLayer name="Saferoad">
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Saferoad</a>'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-          </LayersControl.BaseLayer>
-
-          <LayersControl.BaseLayer name="Hot">
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Saferoad</a>'
-              url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
-            />
-          </LayersControl.BaseLayer>
-
-          <LayersControl.BaseLayer name="Dark">
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Saferoad</a>'
-              url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-            />
-          </LayersControl.BaseLayer>
-          <LayersControl.BaseLayer name="France">
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">Saferoad</a>'
-              url="https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
             />
           </LayersControl.BaseLayer>
         </LayersControl>
