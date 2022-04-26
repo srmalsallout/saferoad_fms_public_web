@@ -50,12 +50,12 @@ const Track = () => {
       fetchData();
       console.log(new Date(decoded.exp * 1000));
       setInterval(() => {
-        if (decoded.exp < new Date().getTime() / 1000) {
+        if (decoded.exp < new Date().getTime() + 1 / 1000) {
           return router.push("/");
         } else {
           null;
         }
-      }, 30000);
+      }, 10);
     } else {
       null;
     }
