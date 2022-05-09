@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import config from "../config/config";
 import { initializeApp } from "firebase/app";
+import { onSnapshot } from "firebase/firestore";
 import { getDatabase, onValue, ref } from "firebase/database";
 import jwt_decode from "jwt-decode";
 
@@ -17,6 +18,7 @@ const Track = () => {
   const router = useRouter();
   const [Data, setData] = useState();
   const [fbData, setfbData] = useState();
+  const [fire, setFire] = useState([]);
 
   var token = query.key;
 
@@ -49,13 +51,6 @@ const Track = () => {
       };
       fetchData();
       console.log(new Date(decoded.exp * 1000));
-      setInterval(() => {
-        if (decoded.exp < new Date().getTime() + 1 / 1000) {
-          return router.push("/");
-        } else {
-          null;
-        }
-      }, 300000000000);
     } else {
       null;
     }
@@ -75,14 +70,14 @@ const Track = () => {
           (error) => {
             console.error("error : ", error);
           },
-          { onlyOnce: true }
+          { onlyOnce: false }
         );
       };
       getOneFBVehicle(Data.SerialNumber);
-      // setInterval(() => {
-      //   getOneFBVehicle(Data.SerialNumber);
-      //   console.log("updated");
-      // }, 30000);
+      setInterval(() => {
+        getOneFBVehicle(Data.SerialNumber);
+        console.log("updated");
+      }, 30000);
     } else {
       null;
     }

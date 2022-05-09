@@ -66,6 +66,11 @@
 @import "./scss/custom/pages/pricing/pricing";
 @import "~react-toastify/scss/main";
 
+.leaflet-div-icon {
+  background-color: transparent !important;
+  border: none !important;
+}
+
 .leaflet-popup-content {
   margin: 0px !important;
   p {
