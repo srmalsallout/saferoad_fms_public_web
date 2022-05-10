@@ -96,7 +96,7 @@ const Track = () => {
     } else {
       null;
     }
-  }, [fbData?.Latitude || fbData?.Longitude]);
+  }, [fbData]);
 
   return (
     <div id="map">
