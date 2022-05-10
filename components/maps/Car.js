@@ -299,9 +299,9 @@ const Car = ({ data, fbData }) => {
         da?.Address ? da?.Address : "You are here"
       }</p></div>
       </div>
-      
+
       </div>
-      
+
       </div>
       `;
 
@@ -311,31 +311,34 @@ const Car = ({ data, fbData }) => {
           da?.VehicleStatus
         )} style="width :15px ; height: 35px; -webkit-transform: rotate(${
           allData.Direction
-        }deg); -moz-transform:rotate(${allData.Direction}deg); " />`,
+        }deg); -moz-transform:rotate(${allData.Direction}deg);" />`,
       }),
     });
     map.addLayer(marker);
-    if (map) {
-      setTimeout((_) => {
-        map.flyTo(pos, 14, {
-          duration: 2,
-        });
 
-        setTimeout(() => {
-          marker.bindPopup(template, popupOptions).openPopup();
-        }, 3000);
-        setTimeout(() => {
-          map.closePopup();
-        }, 6000);
-        marker.closePopup();
-      });
+    if (map) {
+      // map.flyTo(pos, 14, {
+      //   duration: 2,
+      // });
+
+      setTimeout(() => {
+        marker.bindPopup(template, popupOptions).openPopup();
+      }, 1000);
+      setTimeout(() => {
+        map.closePopup();
+      }, 6000);
+      marker.closePopup();
     }
+
+    setTimeout(() => {
+      map.removeLayer(marker);
+    }, 14800);
   };
 
   useEffect(() => {
     console.log(allData, "all Data");
     if (fbData) {
-      changePos([fbData.Latitude, fbData.Longitude], allData);
+      changePos([allData?.Latitude, allData?.Longitude], allData);
     } else {
       null;
     }
@@ -345,8 +348,11 @@ const Car = ({ data, fbData }) => {
     <>
       <MapContainer
         whenCreated={(map) => setMap(map)}
-        center={[24.726875, 46.710461]}
-        zoom={7}
+        center={[
+          fbData?.Latitude ? fbData?.Latitude : 24.726875,
+          fbData?.Longitude ? fbData?.Longitude : 46.710461,
+        ]}
+        zoom={9}
         scrollWheelZoom={true}
         zoomControl={false}
         style={{ height: heightWithoutNav, minWidth: "100%" }}
