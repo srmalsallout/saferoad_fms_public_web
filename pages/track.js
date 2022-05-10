@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import config from "../config/config";
 import { initializeApp } from "firebase/app";
-import { onSnapshot } from "firebase/firestore";
 import { getDatabase, onValue, ref } from "firebase/database";
 import jwt_decode from "jwt-decode";
 

@@ -4,7 +4,6 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css";
 import "leaflet-defaulticon-compatibility";
 import useWindowDimensions from "../../helpers/getWindowDimensions";
-import { icon } from "leaflet";
 import { getKey, iconUrl } from "../../helpers/helpers";
 
 const Car = ({ data, fbData }) => {
