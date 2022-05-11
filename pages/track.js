@@ -17,7 +17,6 @@ const Track = () => {
   const router = useRouter();
   const [Data, setData] = useState();
   const [fbData, setfbData] = useState();
-  const [fire, setFire] = useState([]);
 
   var token = query.key;
 
