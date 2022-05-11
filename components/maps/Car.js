@@ -312,15 +312,17 @@ const Car = ({ data, fbData }) => {
     map.addLayer(marker);
 
     if (map) {
-      map.flyTo(pos, 15, {
-        duration: 2,
+      setTimeout((_) => {
+        map.flyTo(pos, 15, {
+          duration: 2,
+        });
+
+        setTimeout(() => {
+          marker.bindPopup(template, popupOptions).openPopup();
+        }, 3000);
+
+        marker.closePopup();
       });
-
-      setTimeout(() => {
-        marker.bindPopup(template, popupOptions).openPopup();
-      }, 3000);
-
-      marker.closePopup();
     }
     setTimeout(() => {
       map.removeLayer(marker);
