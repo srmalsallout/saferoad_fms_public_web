@@ -1,8 +1,18 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Styles from "../styles/PageNotFound.module.scss";
+import { toast, ToastContainer } from "react-toastify";
 
 const PageNotFound = () => {
+  useEffect(() => {
+    toast("Your can't track this vehicle any more", {
+      autoClose: 5000,
+      pauseOnFocusLoss: false,
+      pauseOnHover: false,
+      type: "error",
+      position: "top-center",
+    });
+  }, []);
   return (
     <div
       style={{ height: "100vh" }}
@@ -13,6 +23,11 @@ const PageNotFound = () => {
         width="700"
         height="700"
         alt="image"
+      />
+      <ToastContainer
+        autoClose={5000}
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
       />
     </div>
   );
