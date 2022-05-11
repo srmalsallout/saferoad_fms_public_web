@@ -55,7 +55,7 @@ const Track = () => {
         } else {
           null;
         }
-      }, 60000);
+      }, 1000);
     } else {
       null;
     }
@@ -79,10 +79,10 @@ const Track = () => {
         );
       };
       getOneFBVehicle(Data.SerialNumber);
-      // setInterval(() => {
-      //   getOneFBVehicle(Data.SerialNumber);
-      //   console.log("updated");
-      // }, 30000);
+      setInterval(() => {
+        getOneFBVehicle(Data.SerialNumber);
+        // console.log("updated");
+      }, 15000);
     } else {
       null;
     }
@@ -90,11 +90,11 @@ const Track = () => {
 
   useEffect(() => {
     if (fbData) {
-      console.log(fbData, "dmt");
+      //console.log(fbData, "dmt");
     } else {
       null;
     }
-  }, [fbData?.Latitude || fbData?.Longitude]);
+  }, [fbData]);
 
   return (
     <div id="map">
