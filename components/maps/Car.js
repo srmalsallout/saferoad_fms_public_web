@@ -336,6 +336,7 @@ const Car = ({ data, fbData }) => {
     } else {
       null;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fbData]);
 
   return (

@@ -59,6 +59,7 @@ const Track = () => {
     } else {
       null;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   useEffect(() => {
@@ -86,6 +87,7 @@ const Track = () => {
     } else {
       null;
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Data]);
 
   useEffect(() => {
