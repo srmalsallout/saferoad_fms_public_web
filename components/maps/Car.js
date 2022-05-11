@@ -313,15 +313,9 @@ const Car = ({ data, fbData }) => {
 
     if (map) {
       setTimeout((_) => {
-        map.flyTo(pos, 15, {
-          duration: 2,
-        });
+        map.flyTo(pos, 15);
 
-        setTimeout(() => {
-          marker.bindPopup(template, popupOptions).openPopup();
-        }, 3000);
-
-        marker.closePopup();
+        marker.bindPopup(template, popupOptions).openPopup();
       });
     }
     setTimeout(() => {
