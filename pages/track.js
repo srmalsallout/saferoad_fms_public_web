@@ -17,7 +17,6 @@ const Track = () => {
   const router = useRouter();
   const [Data, setData] = useState();
   const [fbData, setfbData] = useState();
-  const [duration, setDuration] = useState();
 
   var token = query.key;
 
@@ -28,8 +27,8 @@ const Track = () => {
   useEffect(() => {
     if (token) {
       var decoded = jwt_decode(token);
-      const expiryDate = decoded.exp - decoded.iat;
-      setDuration(expiryDate);
+      const expiryDate = (decoded.exp - decoded.iat) * 1000;
+
       const fetchData = async () => {
         const response = await axios.get(
           `${config.apiGateway.URL}vehicles/public/settings`,
@@ -100,7 +99,7 @@ const Track = () => {
 
   return (
     <div id="map">
-      <MapWithNoSSR data={Data} fbData={fbData} duration={duration} />
+      <MapWithNoSSR data={Data} fbData={fbData} />
     </div>
   );
 };
