@@ -28,8 +28,8 @@ const Track = () => {
   useEffect(() => {
     if (token) {
       var decoded = jwt_decode(token);
-      const expiryDate = decoded.exp - decoded.iat;
-      setDuration(expiryDate);
+      // const expiryDate = decoded.exp - decoded.iat;
+
       const fetchData = async () => {
         const response = await axios.get(
           `${config.apiGateway.URL}vehicles/public/settings`,
@@ -48,7 +48,10 @@ const Track = () => {
         }
       };
       fetchData();
-      console.log(new Date(decoded.exp * 1000));
+      console.log(new Date(decoded.exp * 1000), "tti");
+      const counterTime = new Date(decoded.exp * 1000) - new Date();
+      setDuration(counterTime);
+      console.log(counterTime / 60000, "mu");
       setInterval(() => {
         if (decoded.exp < (new Date().getTime() + 1) / 1000) {
           router.push("/");

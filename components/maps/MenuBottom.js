@@ -4,8 +4,8 @@ import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const MenuBottom = ({ duration }) => {
   const children = ({ remainingTime }) => {
-    const minutes = Math.floor(remainingTime / 60);
-    const seconds = remainingTime % 60;
+    const minutes = Math.floor(remainingTime / 60000);
+    const seconds = Math.round(remainingTime % 60);
 
     return (
       <div className="timer">
