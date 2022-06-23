@@ -320,7 +320,7 @@ const Car = ({ data, fbData, duration }) => {
       });
     }
     setTimeout(() => {
-      map.removeLayer(marker);
+      map?.removeLayer(marker);
     }, 14800);
   };
 
