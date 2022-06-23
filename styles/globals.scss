@@ -66,6 +66,30 @@
 @import "./scss/custom/pages/pricing/pricing";
 @import "~react-toastify/scss/main";
 
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  color: rgb(116, 116, 116);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #246c66;
+}
+
+.info {
+  max-width: 360px;
+  margin: 40px auto 0;
+  text-align: center;
+  font-size: 16px;
+}
 .leaflet-control-attribution a {
   display: none !important;
 }
@@ -76,6 +100,7 @@
 }
 
 .leaflet-popup-content {
+  width: 320px !important;
   margin: 0px !important;
   p {
     margin: 0px !important;
@@ -105,7 +130,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    min-width: 100%;
+    width: 100%;
     overflow: hidden;
     padding-bottom: 0.75rem;
     .popup-second {

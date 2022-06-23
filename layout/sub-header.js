@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import { useTranslation } from "next-i18next";
