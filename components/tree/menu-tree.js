@@ -12,20 +12,20 @@ import { getKey, GetStatusString, iconUrl } from "../../helpers/helpers";
 import { FormControl } from "react-bootstrap";
 
 const MenuTree = ({ changePos }) => {
-  const [Status, setStatus] = useState({
-    stopped: 0,
-    running: 0,
-    idling: 0,
-    offline: 0,
-    over_street_speed: 0,
-    over_speed: 0,
-    invalid_location: 0,
-  });
+  // const [Status, setStatus] = useState({
+  //   stopped: 0,
+  //   running: 0,
+  //   idling: 0,
+  //   offline: 0,
+  //   over_street_speed: 0,
+  //   over_speed: 0,
+  //   invalid_location: 0,
+  // });
   const [lists, setLists] = useState([]);
   const [statusIcons, setStatusIcons] = useState({});
   const [treeFilter, setTreeFilter] = useState("");
   const [TreeStyleHeight, setTreeStyleHeight] = useState(0);
-  const [loading, setLoading] = useState(false);
+  const [, /*loading*/ setLoading] = useState(false);
   const stateReducer = useSelector((state) => state);
   const dispatch = useDispatch();
   const groupBy = (arr, key) =>
