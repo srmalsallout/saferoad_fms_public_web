@@ -17,7 +17,6 @@ const Track = () => {
   const router = useRouter();
   const [Data, setData] = useState();
   const [fbData, setfbData] = useState();
-  const [duration, setDuration] = useState();
 
   var token = query.key;
 
@@ -28,7 +27,7 @@ const Track = () => {
   useEffect(() => {
     if (token) {
       var decoded = jwt_decode(token);
-      // const expiryDate = decoded.exp - decoded.iat;
+      const expiryDate = (decoded.exp - decoded.iat) * 1000;
 
       const fetchData = async () => {
         const response = await axios.get(
@@ -48,10 +47,7 @@ const Track = () => {
         }
       };
       fetchData();
-      console.log(new Date(decoded.exp * 1000), "tti");
-      const counterTime = new Date(decoded.exp * 1000) - new Date();
-      setDuration(counterTime);
-      console.log(counterTime / 60000, "mu");
+      console.log(new Date(decoded.exp * 1000));
       setInterval(() => {
         if (decoded.exp < (new Date().getTime() + 1) / 1000) {
           router.push("/");
@@ -103,7 +99,7 @@ const Track = () => {
 
   return (
     <div id="map">
-      <MapWithNoSSR data={Data} fbData={fbData} duration={duration} />
+      <MapWithNoSSR data={Data} fbData={fbData} />
     </div>
   );
 };
