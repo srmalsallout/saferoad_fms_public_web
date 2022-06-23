@@ -1,6 +1,5 @@
 import Image from "next/image";
 import React, { useEffect } from "react";
-import Styles from "../styles/PageNotFound.module.scss";
 import { toast, ToastContainer } from "react-toastify";
 
 const PageNotFound = () => {
@@ -15,7 +14,7 @@ const PageNotFound = () => {
   }, []);
   return (
     <div
-      style={{ height: "100vh" }}
+      style={{ height: "100vh", backgroundColor: "#FEFEFE" }}
       className="d-flex justify-content-center align-items-center flex-column fs-5 text-danger"
     >
       <Image
@@ -24,6 +23,7 @@ const PageNotFound = () => {
         height="700"
         alt="image"
       />
+
       <ToastContainer
         autoClose={5000}
         pauseOnFocusLoss={false}

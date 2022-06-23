@@ -6,8 +6,9 @@ import "leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility
 import "leaflet-defaulticon-compatibility";
 import useWindowDimensions from "../../helpers/getWindowDimensions";
 import { getKey, iconUrl } from "../../helpers/helpers";
+import MenuBottom from "./MenuBottom";
 
-const Car = ({ data, fbData }) => {
+const Car = ({ data, fbData, duration }) => {
   const { heightWithoutNav } = useWindowDimensions();
   const [map, setMap] = useState(null);
   const layersControl = useRef(null);
@@ -309,7 +310,7 @@ const Car = ({ data, fbData }) => {
         }deg); -moz-transform:rotate(${allData.Direction}deg);" />`,
       }),
     });
-    map.addLayer(marker);
+    map?.addLayer(marker);
 
     if (map) {
       setTimeout((_) => {
@@ -319,7 +320,7 @@ const Car = ({ data, fbData }) => {
       });
     }
     setTimeout(() => {
-      map.removeLayer(marker);
+      map?.removeLayer(marker);
     }, 14800);
   };
 
@@ -373,6 +374,7 @@ const Car = ({ data, fbData }) => {
           </LayersControl.BaseLayer>
         </LayersControl>
       </MapContainer>
+      <MenuBottom duration={duration} />
     </>
   );
 };
