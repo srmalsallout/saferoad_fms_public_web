@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Navbar, Container, Nav, Dropdown } from "react-bootstrap";
 import avatars1 from "../public/assets/images/saferoad_logo_icon.svg";
-import avatars2 from "../public/assets/images/741407.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";

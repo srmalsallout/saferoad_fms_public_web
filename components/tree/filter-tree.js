@@ -46,7 +46,7 @@ const FilterTree = ({ active }) => {
     },
   ];
   const [Status, setStatus] = useState("");
-  const [Data, setData] = useState([]);
+  const [, /*Data*/ setData] = useState([]);
 
   useEffect(() => {
     setData(stateReducer.firebase.Vehicles);
