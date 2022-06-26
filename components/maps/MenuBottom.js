@@ -2,7 +2,7 @@ import React from "react";
 import Styles from "../../styles/MenuBottom.module.scss";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
-const MenuBottom = () => {
+const MenuBottom = ({ duration }) => {
   const children = ({ remainingTime }) => {
     const minutes = Math.floor(remainingTime / 60);
     const seconds = Math.round(remainingTime % 60);
@@ -25,7 +25,7 @@ const MenuBottom = () => {
       >
         <CountdownCircleTimer
           isPlaying
-          duration={1800}
+          duration={duration}
           colors={["#246c66", "#f54242"]}
           colorsTime={[7, 7]}
           size={95}
